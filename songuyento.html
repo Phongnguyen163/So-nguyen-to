@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" placeholder="Nhap so so nguyen to" id="num">
+<button onclick="Ktra()">Kiem tra</button>
+<h3 id="rs"></h3>
+<script>
+    let num = document.getElementById('num');
+    let result = document.getElementById('rs');
+    function Ktra() {
+        let count = 0;
+        let N = 2 ;
+        let text = "";
+        while (count < +num.value) {
+            if (N == 2) {
+                text = text + " " + N;
+                N++;
+                count++;
+            }
+            else {
+                let c = 0;
+                for (let i= 2; i < N; i++ ) {
+                    if (N%i == 0) {
+                        c++;
+                        N++;
+                        break;
+                    }
+                }
+                if (c==0) {
+                    text = text + " " + N;
+                    N++;
+                    count++;
+                }
+            }
+        }
+        result.innerText = "Chuỗi số nguyên tố: " + text;
+    }
+</script>
+</body>
+</html>
